@@ -27,33 +27,48 @@
 
 #include "unity_fixture.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <memory.h>
 
 TEST_GROUP(sprintf);
 
-static char output[100];
+char * output;
+/* static char output[100]; */
 static const char * expected;
+long l1, l2;
 
 TEST_SETUP(sprintf)
 {
-    memset(output, 0xaa, sizeof output);
+    /* memset(output, 0xaa, sizeof output); */
     expected = "";
 }
 
 TEST_TEAR_DOWN(sprintf)
 {
+	if (output) {
+		free(output);
+	}
 }
 
 static void expect(const char * s)
 {
-    expected = s;
+	l1 = strlen(s);
+	expected = s;
+	/* printf("s=%ld\n",l1); */
+	output = (char *)malloc(l1 + 2);
+	if (output) {
+		memset(output, 0xaa, l1 + 2);
+	}
+	/* printf("output=%s\n",output); */
 }
 
 static void given(int charsWritten)
 {
+	l2 = strlen(expected);
+	/* printf("expected=%ld\n",l2); */
     TEST_ASSERT_EQUAL(strlen(expected), charsWritten);
     TEST_ASSERT_EQUAL_STRING(expected, output);
-    TEST_ASSERT_BYTES_EQUAL(0xaa, output[strlen(expected) + 1]);
+    TEST_ASSERT_BYTES_EQUAL(0xaa, output[l2 + 1]);
 }
 
 

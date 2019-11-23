@@ -69,6 +69,24 @@ TEST(sprintf, InsertString)
     expect("Hello World\n");
     given(sprintf(output, "Hello %s\n", "World"));
 }
+
+TEST(sprintf, InsertInteger)
+{
+    expect("Hello number 9\n");
+    given(sprintf(output, "Hello number %d\n", 9));
+}
+
+TEST(sprintf, InsertFloat)
+{
+    expect("Hello floating number 9.9\n");
+    given(sprintf(output, "Hello floating number %.1f\n", 9.9));
+}
+
+TEST(sprintf, InsertHexInt)
+{
+    expect("Hello hex int 0xaa\n");
+    given(sprintf(output, "Hello hex int 0x%x\n", 0xaa));
+}
 #endif  
 
 /* to run this also change in SprintfTestRunner.c */

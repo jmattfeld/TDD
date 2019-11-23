@@ -3,7 +3,6 @@
 //- Cannot be used by attendees to train others without written permission.
 //- www.renaissancesoftware.net james@renaissancesoftware.net
 
-//START: main
 #include "CppUTest/CommandLineTestRunner.h"
 
 int main(int argc, char** argv)

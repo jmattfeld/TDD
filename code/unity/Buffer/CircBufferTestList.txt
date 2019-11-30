@@ -1,0 +1,14 @@
+Circular Buffer Test List
+=========================
+Buffer Inits With 0x0 Memory
+Put Index Inits To 0
+Pop Index Inits To 0
+Put Index Incs After Put
+Pop Index Incs After Pop
+Pop Int Matches Put Int
+Pop Int Matches First Of 2 Puts
+Pop Int Matches First Of Bufflen Puts
+2nd Pop Int Matches 2nd Put Int
+Buflen Pop Int Matches Buflen Put Int
+Error Message On Put When Buffer Is Full
+Error Message On Pop When Buffer Is Empty

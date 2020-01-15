@@ -29,6 +29,15 @@
 #ifndef D_CircularBuffer_H
 #define D_CircularBuffer_H
 
+typedef struct CircularBufferStruct
+{
+    int count;
+    int index;
+    int outdex;
+    int capacity;
+    int * values;
+} CircularBufferStruct ;
+
 typedef struct CircularBufferStruct * CircularBuffer;
 
 CircularBuffer CircularBuffer_Create(int capacity);

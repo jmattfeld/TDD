@@ -26,14 +26,7 @@
 
 #include "unity_fixture.h"
 
-TEST_GROUP_RUNNER(sprintf)
+TEST_GROUP_RUNNER(CircularBuffer)
 {
-    RUN_TEST_CASE(sprintf, NoFormatOperations);
-    RUN_TEST_CASE(sprintf, InsertString);
-    RUN_TEST_CASE(sprintf, InsertInteger);
-    RUN_TEST_CASE(sprintf, InsertFloat);
-    RUN_TEST_CASE(sprintf, InsertHexInt);
-#if 0
-    RUN_TEST_CASE(sprintf, StringWithSpace);
-#endif
+    RUN_TEST_CASE(CircularBuffer, TestCapacity);
 }

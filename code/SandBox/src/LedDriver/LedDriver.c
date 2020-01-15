@@ -28,8 +28,52 @@
 #include <stdlib.h>
 #include <memory.h>
 
-void LedDriver_Create(void)
+#define ALL_LEDS_ON 0xffff
+#define ALL_LEDS_OFF 0x0000
+
+
+static uint16_t * pVirtLeds;
+static uint16_t ledsImage;
+
+static void updateHardware()
 {
+	*pVirtLeds = ledsImage;
+}
+
+static uint16_t convertLedNumToBit(int nLed)
+{
+	return 1 << (nLed - 1);
+}
+
+void LedDriver_Create(uint16_t *address)
+{
+	pVirtLeds = address;
+	ledsImage = ALL_LEDS_OFF;
+	updateHardware();
+}
+
+void LedDriver_TurnOn(uint16_t nLed)
+{
+	if (nLed <= 0 || nLed > 16)
+		return;
+
+	ledsImage |= convertLedNumToBit(nLed);
+	updateHardware();
+}
+
+void LedDriver_TurnAllOn()
+{
+	ledsImage = ALL_LEDS_ON;
+	updateHardware();
+}
+
+void LedDriver_TurnOff(uint16_t nLed)
+{
+	if (nLed <= 0 || nLed > 16)
+		return;
+
+	ledsImage &= ~(convertLedNumToBit(nLed));
+	updateHardware();
 }
 
 void LedDriver_Destroy(void)

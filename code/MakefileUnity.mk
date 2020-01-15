@@ -21,11 +21,13 @@ UNITY_WARNINGFLAGS = -Wall -Werror -Wswitch-default
 SRC_DIRS = \
 	$(PROJECT_HOME_DIR)/src/LedDriver \
 	$(PROJECT_HOME_DIR)/src/HomeAutomation \
+	$(PROJECT_HOME_DIR)/src/util \
 
 TEST_SRC_DIRS = \
 	$(PROJECT_TEST_DIR)\
 	$(PROJECT_TEST_DIR)/HomeAutomation\
 	$(PROJECT_TEST_DIR)/LedDriver\
+	$(PROJECT_TEST_DIR)/Buffer\
 	$(PROJECT_TEST_DIR)/stdio\
 	$(UNITY_HOME)/unity\
 	$(UNITY_HOME)/src\

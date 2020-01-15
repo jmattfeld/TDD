@@ -53,6 +53,7 @@ static void RunAllTests(void)
     RUN_TEST_GROUP(LightControllerSpy);
     RUN_TEST_GROUP(LightScheduler);
     RUN_TEST_GROUP(LightSchedulerInitAndCleanup);
+    RUN_TEST_GROUP(CircularBuffer);
 }
 
 

@@ -29,22 +29,22 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct CircularBufferStruct
-{
-    int count;
-    int index;
-    int outdex;
-    int capacity;
-    int * values;
-} CircularBufferStruct ;
+/* typedef struct CircularBufferStruct */
+/* { */
+/*     int count; */
+/*     int index; */
+/*     int outdex; */
+/*     int capacity; */
+/*     int * values; */
+/* } CircularBufferStruct ; */
 
 enum {BUFFER_GUARD = -999};
 
 CircularBuffer CircularBuffer_Create(int capacity)
 {
-    CircularBuffer self = calloc(capacity, sizeof(CircularBufferStruct));
+    CircularBuffer self = (CircularBuffer)calloc(capacity, sizeof(CircularBufferStruct));
     self->capacity = capacity;
-    self->values = calloc(capacity + 1, sizeof(int));
+    self->values = (int *)calloc(capacity + 1, sizeof(int));
     self->values[capacity] = BUFFER_GUARD;
     return self;
 }
